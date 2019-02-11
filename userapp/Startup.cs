@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UserApp.Models;
+using UserApp.Services.Interfaces;
+using UserApp.Services;
 
 namespace UserApp
 {
@@ -20,6 +22,7 @@ namespace UserApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connection = @"Server=.;Database=TestDB;User ID=dev;Password=relias;Integrated Security=False;ConnectRetryCount=0;MultipleActiveResultSets=True";
