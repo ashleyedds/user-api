@@ -10,5 +10,6 @@ namespace UserApp.Services.Interfaces
         Task<ActionResult<List<User>>> GetAll();
         Task<ActionResult<User>> GetById(int userId);
         Task<ActionResult<User>> PostUser(User user);
+        Task<ActionResult<User>> DeleteUser(User user);
     }
 }

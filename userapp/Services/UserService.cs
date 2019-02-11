@@ -35,5 +35,12 @@ namespace UserApp.Services
             await _context.SaveChangesAsync();
             return user;
         }
+
+        public async Task<ActionResult<User>> DeleteUser(User user)
+        {
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            return user;
+        }
     }
 }

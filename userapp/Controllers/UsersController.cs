@@ -41,6 +41,14 @@ namespace UserApp.Controllers
         {
             await _userService.PostUser(user);
             return NoContent();
-        }      
+        } 
+        
+        //DELETE api/<controller>
+        [HttpDelete]
+        public async Task<ActionResult<User>> DeleteUser(User user)
+        {
+            await _userService.DeleteUser(user);
+            return NoContent();
+        }
     }
 }
