@@ -44,10 +44,10 @@ namespace UserApp.Controllers
         } 
         
         //DELETE api/<controller>
-        [HttpDelete]
-        public async Task<ActionResult<User>> DeleteUser(User user)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<User>> DeleteUser(int id)
         {
-            await _userService.DeleteUser(user);
+            await _userService.DeleteUser(id);
             return NoContent();
         }
     }

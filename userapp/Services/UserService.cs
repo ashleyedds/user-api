@@ -36,8 +36,9 @@ namespace UserApp.Services
             return user;
         }
 
-        public async Task<ActionResult<User>> DeleteUser(User user)
+        public async Task<ActionResult<User>> DeleteUser(int userId)
         {
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
             return user;
